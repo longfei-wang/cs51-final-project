@@ -1,12 +1,14 @@
+open Core.Std
+
 
 (* The raw data we use *)
-type dataset = { 
-	text : string;
-	flag : string;
+(* type dataset = { 
+	text:string;
+	flag:string;
 }
-
+ *)
 (* read_data from a file *)
-val read_data : string -> dataset
+val read_data : string -> dataset list
 
 (* randomly split data according to a input ratio *)
 val split_data : dataset -> float -> (dataset * dataset)
@@ -51,16 +53,16 @@ end
 
 
 (* A Simple Decision Tree will take a text_to_feature module and Dict module to construct*)
-module Simple_Decision_Tree (TF : text_to_feature) (D : Dict) : Classifier =
+(* module Simple_Decision_Tree (TF : text_to_feature) (D : Dict) : Classifier =
 struct
 	......
-end
+end *)
 
 (* A random forest classifier is constructed by a number of trees *)
-module Random_Forest (C : Classifier) (num_of_trees : int) : Classifier =
+(* module Random_Forest (C : Classifier) (num_of_trees : int) : Classifier =
 struct
 	......
-end
+end *)
 
 (* Benchmark and then calculate sensitivity and specificity *)
 module Benchmark (C : Classifier) =
