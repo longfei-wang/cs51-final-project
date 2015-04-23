@@ -2,16 +2,17 @@ open Core.Std
 
 
 (* The raw data we use *)
-(* type dataset = { 
+type dataset = { 
 	text:string;
 	flag:string;
 }
- *)
+
+ 
 (* read_data from a file *)
-val read_data : string -> dataset list
+val read : string -> dataset list
 
 (* randomly split data according to a input ratio *)
-val split_data : dataset -> float -> (dataset * dataset)
+val split_data : dataset list -> float -> (dataset list * dataset list)
 
 
 (* break down text into features *)
