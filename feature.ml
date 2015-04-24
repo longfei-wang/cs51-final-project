@@ -23,6 +23,8 @@ sig
 	(* union 2 sets *)
 	val union : set -> set -> set
 
+	val length : set -> int
+
 	val run_test : unit -> unit
 end
 
@@ -36,7 +38,7 @@ struct
 
 	let break_down text = 
 		let clean_text = String.filter text ~f:(fun c -> not (List.mem (String.to_list "!?();:,.\"\'") c)) in
-		String.split clean_text ' '
+		String.split clean_text ~on:' '
 
 	let to_set fl =
 		List.fold_left ~f:(fun i x -> String.Set.add i x) ~init:String.Set.empty fl
@@ -49,6 +51,9 @@ struct
 
 	let union s1 s2 =
 		String.Set.union s1 s2
+
+	let length s =
+		String.Set.length s
 
 	let run_test () = 
 		let features = break_down "wow! this is looking great!! Do you think so?" in

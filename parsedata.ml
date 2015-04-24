@@ -40,7 +40,6 @@ let random_split (input: 'a list) (ratio: float) : ('a list * 'a list) =
   parse_one input [] num
 
 
-
 (* test function for split *)
 let test_split (i: 'a list * 'a list) : unit =
   let (t,f) = i in
