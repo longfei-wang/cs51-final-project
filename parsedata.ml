@@ -31,14 +31,13 @@ let random_split (input: 'a list) (ratio: float) : ('a list * 'a list) =
   Random.init (Float.to_int (Unix.time ()));
   let len = List.length input in
   let num = Float.to_int (ratio *. (float len)) in
-  let rec parse_one (i: 'a list * 'a list) (n: int) : ('a list * 'a list) =
+  let rec parse_one (f: 'a list) (t: 'a list) (n: int) : ('a list * 'a list) =
     (match n >= 1 with
-    | false -> i
+    | false -> (t,f)
     | true -> 
-      let (t,f) = i in
       let r = Random.int (List.length f) in
-      parse_one ((List.nth_exn f r)::t, (List.filteri ~f:(fun i _ -> i <> r) f)) (n-1)) in
-  parse_one ([], input) num
+      parse_one (List.filteri ~f:(fun i _ -> i <> r) f) ((List.nth_exn f r)::t) (n-1)) in
+  parse_one input [] num
 
 
 
