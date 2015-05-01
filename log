@@ -1,0 +1,21 @@
+bigram 20 0.5
+True Positive(Sensitivity): 0.633540
+True Negative(Specificity): 0.980084
+Precision: 0.842975
+Negative predictive power: 0.940644
+Deviation: 0.050383
+
+bigram 20 0.8
+True Positive(Sensitivity): 0.756757
+True Negative(Specificity): 0.955533
+Precision: 0.722581
+Negative predictive power: 0.962500
+Deviation: 0.052552
+
+bigram 40 0.8
+True Positive(Sensitivity): 0.789855
+True Negative(Specificity): 0.970317
+Precision: 0.789855
+Negative predictive power: 0.970317
+Deviation: 0.039081
+
